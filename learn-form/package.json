@@ -1,0 +1,16 @@
+{
+  "name": "learn-form",
+  "version": "0.1.0",
+  "description": "form submit demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "form",
+    "post"
+  ],
+  "author": "dkvirus",
+  "license": "ISC"
+}
