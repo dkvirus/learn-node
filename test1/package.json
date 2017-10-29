@@ -1,0 +1,22 @@
+{
+  "name": "test1",
+  "version": "0.1.0",
+  "description": "homework to summary first part",
+  "main": "index.js",
+  "scripts": {
+    "start": "supervisor node src/index.js",
+    "lint": "eslint --fix --ext .js routes"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "formidable": "^1.1.1",
+    "path-to-regexp": "^2.1.0",
+    "silly-datetime": "^0.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "supervisor": "^0.12.0"
+  }
+}
