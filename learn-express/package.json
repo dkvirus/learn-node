@@ -1,0 +1,21 @@
+{
+  "name": "learn-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "supervisor node app.js",
+    "lint": "eslint --fix --ext .js routes"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "formidable": "^1.1.1",
+    "silly-datetime": "^0.1.2"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
+}
