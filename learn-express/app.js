@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 
 // 请求照片列表页面
 app.get('/photo', function (req, res) {
-  fs.readdir(path.join(process.cwd(), 'static/images'), function (err, files) {
+  fs.readdir(path.join(process.cwd(), 'config/images'), function (err, files) {
     files = files.map(file => {
       if (file.indexOf('.') !== -1) {
         return `/images/${file}`;
@@ -25,7 +25,7 @@ app.get('/photo', function (req, res) {
 // 点击照片列表目录进入详情页
 app.get('/photo/:fileName', function (req, res) {
   const fileName = req.params.fileName;
-  const dirPath = path.join(process.cwd(), 'static/images', fileName);
+  const dirPath = path.join(process.cwd(), 'config/images', fileName);
   fs.readdir(dirPath, function (err, files) {
     files = files.map(file => {
       return `/images/${fileName}/${file}`;
@@ -40,16 +40,16 @@ app.get('/upload', function (req, res) {
 // 处理上传业务
 app.post('/dopost', function (req, res) {
   const form = new formidable.IncomingForm();
-  form.uploadDir = path.join(process.cwd(), 'static/images');
+  form.uploadDir = path.join(process.cwd(), 'config/images');
   const rand = sd.format(new Date(), 'YYYYMMDDHHmm') + Math.floor((Math.random()*10000));
 
   form.parse(req, function(err, fields, files) {
-    // 不管怎样，先在 static/images 下保存图片
+    // 不管怎样，先在 config/images 下保存图片
     const oldPath = files.photo.path;
     const newPath = path.join(path.dirname(oldPath), rand + path.extname(files.photo.name));
     fs.renameSync(oldPath, newPath);
 
-    const dirname = path.join(process.cwd(), '/static/images', fields.dirname);
+    const dirname = path.join(process.cwd(), '/config/images', fields.dirname);
     if (!fs.existsSync(dirname)) {
       // 不存在，创建该目录
       fs.mkdirSync(dirname);
